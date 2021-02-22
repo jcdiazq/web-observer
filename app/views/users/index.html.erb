@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="card mx-auto mt-5">
+    <div class="card-header">Usuarios</div>
+    <div class="card-body">
+
+ <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-6">
+        <%= link_to '', new_user_path,{ class: "fa fa-plus-square" } %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-6">
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Login</th>
+              <th>Perfil</th>              
+              <th>Primer nombre</th>              
+              <th>Primer apellido</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.id %></td>
+                <td><%= user.login %></td>
+                <td><%des_Perfil=Profile.find_by(:id=>user.perfil_id)%>
+                  <%=des_Perfil.descripcion%></td>
+                <td><%= user.primer_nombre %></td>
+                <td><%= user.primer_apellido %></td>
+                <td><%= link_to '', user,{ class: "fa fa-eye" } %></td>
+                <td><%= link_to '', edit_user_path(user),{ class: "fa fa-edit" } %></td>
+                <td><%= link_to 'Eliminar', user,:class=>"fa fa-trash-alt", method: :delete, data: { confirm: '¿Realmente desea eliminar el registro?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </div>
+</div>

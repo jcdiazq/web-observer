@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="card mx-auto mt-5">
+    <div class="card-header">Grado</div>
+    <div class="card-body">
+
+       <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-4">
+            <strong>Id:</strong>
+            <%= @working_day.id %>
+          </div>
+          <div class="col-md-4">
+            <strong>Descripción:</strong>
+            <%= @working_day.descripcion %>
+          </div>
+          <div class="col-md-4">
+            <strong>Fecha creación:</strong>
+            <%= @working_day.fecha_creacion %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+            <div class="col-md-6">
+                <%= link_to 'Editar', edit_working_day_path(@working_day),{ class: "btn btn-info btn-sm" } %> 
+                <%= link_to 'Volver', working_days_path,{ class: "btn btn-info btn-sm" } %>
+            </div>
+        </div> 
+      </div>
+    </div>
+  </div> 
+</div>
+
+

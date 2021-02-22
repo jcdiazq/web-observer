@@ -1,0 +1,160 @@
+<%= form_with(model: attendant, local: true) do |form| %>
+  <% if attendant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attendant.errors.count, "error") %> prohibited this attendant from being saved:</h2>
+
+      <ul>
+      <% attendant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="form-row">
+
+      <div class="col-md-3">
+        <label id="lblId">Id:</label>
+        <input type="number" id="attendant_id" name="attendant[id]" 
+        class="form-control" placeholder="id Automatico" readonly="readonly"
+        value="<%= @attendant != nil ? @attendant.id : '' %>">        
+      </div>
+      
+      <div class="col-md-3">        
+        <label id="lblparentesco">Parentesco:</label>
+        <%@Parentesco = KinType.all%>
+        <select id="attendant_parentesco" name="attendant[parentesco]" class="form-control">
+          <% @Parentesco.each do |item|%>
+            <option value="<%= item.id %>" <%= @attendant.parentesco == item.id ? 'selected' : '' %> ><%= item.descripcion %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label id="lbltipo_documento_id">Tipo Documento:</label>
+        <%@TipoDocumento = DocumentType.all%>
+        <select id="attendant_TipoDocumento" name="attendant[tipo_documento_id]" class="form-control">
+          <% @TipoDocumento.each do |item|%>
+            <option value="<%= item.id %>" <%= @attendant.tipo_documento_id == item.id ? 'selected' : '' %> ><%= item.descripcion %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblcedula">Identificación:</label>
+        <input type="text" id="attendant_cedula" name="attendant[cedula]" 
+        class="form-control" placeholder="Ingrese identificación" required="required"
+        value="<%= @attendant != nil ? @attendant.cedula : '' %>">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+
+      <div class="col-md-3">
+        <label id="lblprimer_nombre">Primer Nombre:</label>
+        <input type="text" id="attendant_primer_nombre" name="attendant[primer_nombre]" 
+        class="form-control" placeholder="Primer Nombre" required="required"
+        value="<%= @attendant != nil ? @attendant.primer_nombre : '' %>">        
+      </div>
+      
+      <div class="col-md-3">        
+        <label id="lblsegundo_nombre">Segundo Nombre:</label>
+        <input type="text" id="attendant_segundo_nombre" name="attendant[segundo_nombre]" 
+        class="form-control" placeholder="Segundo Nombre"
+        value="<%= @attendant != nil ? @attendant.segundo_nombre : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblprimer_apellido">Primer Apellido:</label>
+        <input type="text" id="attendant_primer_apellido" name="attendant[primer_apellido]" 
+        class="form-control" placeholder="Primer Apellido" required="required"
+        value="<%= @attendant != nil ? @attendant.primer_apellido : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblsegundo_apellido">Segundo Apellido:</label>
+        <input type="text" id="attendant_segundo_apellido" name="attendant[segundo_apellido]" 
+        class="form-control" placeholder="Segundo Apellido"
+        value="<%= @attendant != nil ? @attendant.segundo_apellido : '' %>">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+
+      <div class="col-md-3">
+        <label id="lbltelefono_celular">Telefono celular:</label>
+        <input type="text" id="attendant_telefono_celular" name="attendant[telefono_celular]" 
+        class="form-control" placeholder="Telefono celular" required="required"
+        value="<%= @attendant != nil ? @attendant.telefono_celular : '' %>">        
+      </div>
+
+      <div class="col-md-3">
+        <label id="lbltelefono_fijo">Telefono fijo:</label>
+        <input type="text" id="attendant_telefono_fijo" name="attendant[telefono_fijo]" 
+        class="form-control" placeholder="Telefono fijo" required="required"
+        value="<%= @attendant != nil ? @attendant.telefono_fijo : '' %>">        
+      </div>
+      
+      <div class="col-md-3">        
+        <label id="lblcorreo">Correo:</label>
+        <input type="email" id="attendant_correo" name="attendant[correo]" 
+        class="form-control" placeholder="Direccion de correo"
+        value="<%= @attendant != nil ? @attendant.correo : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lbldireccion">Dirección:</label>
+        <input type="text" id="attendant_direccion" name="attendant[direccion]" 
+        class="form-control" placeholder="Dirección" required="required"
+        value="<%= @attendant != nil ? @attendant.direccion : '' %>">
+      </div>
+
+      
+
+      
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+
+    <div class="col-md-3">
+        <label id="lblgenero">Genero:</label>
+        <%@Genero = Gender.all%>
+        <select id="attendant_TipoDocumento" name="attendant[genero]" class="form-control">
+          <% @Genero.each do |item|%>
+            <option value="<%= item.id %>" <%= @attendant.genero == item.id ? 'selected' : '' %> ><%= item.descripcion %></option>
+          <% end %>
+        </select>
+      </div>
+
+    <div class="col-md-3">
+        <label id="lblfecha_creacion">Fecha Creación:</label>
+        <input type="text" id="attendant_fecha_creacion" name="attendant[fecha_creacion]" 
+        class="form-control" placeholder="Fecha Automatico" readonly="readonly"
+        value="<%= @attendant != nil ? @attendant.fecha_creacion : '' %>">
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-12">
+        
+        <input type="submit" id="btnAceptar" value="Aceptar"
+        class="btn btn-primary" name="btnAceptar"/>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>  

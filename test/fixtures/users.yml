@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  login: MyString
+  perfil_id: 1
+  password: MyString
+  primer_nombre: MyString
+  segundo_nombre: MyString
+  primer_apellido: MyString
+  segundo_apellido: MyString
+  telefono: MyString
+  correo: MyString
+  fecha_creacion: 2018-07-19
+  tipo_documento_id: 1
+  cedula: 1
+
+two:
+  id: 1
+  login: MyString
+  perfil_id: 1
+  password: MyString
+  primer_nombre: MyString
+  segundo_nombre: MyString
+  primer_apellido: MyString
+  segundo_apellido: MyString
+  telefono: MyString
+  correo: MyString
+  fecha_creacion: 2018-07-19
+  tipo_documento_id: 1
+  cedula: 1

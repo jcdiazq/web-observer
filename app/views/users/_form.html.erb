@@ -1,0 +1,147 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="form-row">
+
+      <div class="col-md-3">
+        <label id="lblId">Id:</label>
+        <input type="number" id="user_id" name="user[id]" 
+        class="form-control" placeholder="id automatico" readonly="readonly"
+        value="<%= @user != nil ? @user.id : '' %>" >
+      </div>
+      
+      <div class="col-md-3">        
+        <label id="lbllogin">Login:</label>
+        <input type="text" id="user_login" name="user[login]" 
+        class="form-control" placeholder="Ingrese login" required="required"
+        value="<%= @user != nil ? @user.login : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblperfil_id">Perfil:</label>
+
+        <%@perfiles = Profile.all%>
+                <select id="user_perfil_id" name="user[perfil_id]" class="form-control">
+                            <% @perfiles.each do |item|%>
+                                <option value="<%= item.id %>" <%= @user.perfil_id == item.id ? 'selected' : '' %> ><%= item.descripcion %></option>
+                            <% end %>
+                        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblpassword">Password:</label>
+        <input type="password" id="user_password" name="user[password]" 
+        class="form-control" placeholder="Ingrese password" required="required"
+        value="<%= @user != nil ? @user.password : '' %>">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+
+      <div class="col-md-3">
+        <label id="lblprimer_nombre">Primer Nombre:</label>
+        <input type="text" id="user_primer_nombre" name="user[primer_nombre]" 
+        class="form-control" placeholder="Primer Nombre" required="required"
+        value="<%= @user != nil ? @user.primer_nombre : '' %>">        
+      </div>
+      
+      <div class="col-md-3">        
+        <label id="lblsegundo_nombre">Segundo Nombre:</label>
+        <input type="text" id="user_segundo_nombre" name="user[segundo_nombre]" 
+        class="form-control" placeholder="Segundo Nombre"
+        value="<%= @user != nil ? @user.segundo_nombre : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblprimer_apellido">Primer Apellido:</label>
+        <input type="text" id="user_primer_apellido" name="user[primer_apellido]" 
+        class="form-control" placeholder="Primer Apellido" required="required"
+        value="<%= @user != nil ? @user.primer_apellido : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblsegundo_apellido">Segundo Apellido:</label>
+        <input type="text" id="user_segundo_apellido" name="user[segundo_apellido]" 
+        class="form-control" placeholder="Segundo Apellido"
+        value="<%= @user != nil ? @user.segundo_apellido : '' %>">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+
+      <div class="col-md-3">
+        <label id="lbltelefono">Telefono:</label>
+        <input type="text" id="user_telefono" name="user[telefono]" 
+        class="form-control" placeholder="Telefono" required="required"
+        value="<%= @user != nil ? @user.telefono : '' %>">        
+      </div>
+      
+      <div class="col-md-3">        
+        <label id="lblcorreo">Correo:</label>
+        <input type="email" id="user_correo" name="user[correo]" 
+        class="form-control" placeholder="Direccion de correo" required="required"
+        value="<%= @user != nil ? @user.correo : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lblfecha_creacion">Fecha Creación:</label>
+        <input type="text" id="user_fecha_creacion" name="user[fecha_creacion]" 
+        class="form-control" placeholder="Fecha Automatico" readonly="readonly"
+        value="<%= @user != nil ? @user.fecha_creacion : '' %>">
+      </div>
+
+      <div class="col-md-3">
+        <label id="lbltipo_documento_id">Tipo documento:</label>
+        <%@des_tipo_documento = DocumentType.all%>
+        <select id="user_tipo_documento_id" name="user[tipo_documento_id]" class="form-control">
+          <% @des_tipo_documento.each do |item|%>
+            <option value="<%= item.id %>" <%= @user.tipo_documento_id == item.id ? 'selected' : '' %> ><%= item.descripcion %></option>
+          <% end %>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+
+      <div class="col-md-3">
+        <label id="lblcedula">Numero de identificación:</label>
+        <input type="number" id="user_cedula" name="user[cedula]" 
+        class="form-control" placeholder="Numero de identificación" required="required"
+        value="<%= @user != nil ? @user.cedula : '' %>">        
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-12">
+        
+        <input type="submit" id="btnAceptar" value="Aceptar"
+        class="btn btn-primary" name="btnAceptar"/>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>  

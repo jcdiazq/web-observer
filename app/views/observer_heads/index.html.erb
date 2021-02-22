@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="card mx-auto mt-5">
+    <div class="card-header">Encabezado Observador</div>
+    <div class="card-body">
+
+ <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-6">
+        <%= link_to 'Nuevo', new_observer_head_path,{ class: "btn btn-warning btn-sm" } %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-6">
+
+        <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Fecha creacion</th>
+      <th>Estudiante</th>
+      <th>Usuario</th>
+      <th>Titulo</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @observer_heads.each do |observer_head| %>
+        <tr>
+          <td><%= observer_head.id %></td>
+          <td><%= observer_head.fecha_creacion %></td>
+          <td><%des_Estudiante=Student.find_by(:id=>observer_head.estudiante_id)%>
+            <%=des_Estudiante.numero_identificacion%> - <%=des_Estudiante.primer_nombre%> <%=des_Estudiante.primer_apellido%></td>
+          <td><%des_Usuario=User.find_by(:id=>observer_head.usuario_id)%>
+            <%=des_Usuario.login%></td>
+          <td><%= observer_head.titulo %></td>
+          <td><%des_Estado=ObserverState.find_by(:id=>observer_head.estado)%>
+            <%=des_Estado.descripcion%></td>
+          <td><%= link_to 'Ver', observer_head,{ class: "btn btn-info btn-sm" } %></td>
+          <% if observer_head.estado==1 %>
+          <td><%= link_to 'Editar', edit_observer_head_path(observer_head),{ class: "btn btn-success btn-sm" } %></td>
+          <td><%= link_to 'Eliminar', observer_head,:class=>"btn btn-danger btn-sm", method: :delete, data: { confirm: '¿Realmente desea eliminar el registro?' } %></td>
+          <%end%>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

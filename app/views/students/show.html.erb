@@ -1,0 +1,107 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="card mx-auto mt-5">
+    <div class="card-header">Estudiante</div>
+    <div class="card-body">
+
+       <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-3">
+            <strong>Id:</strong>
+            <%= @student.id %>
+          </div>
+          <div class="col-md-3">
+            <strong>Grado:</strong>
+            <%des_Grado=Grade.find_by(:id=>@student.grado_id)%>
+            <%=des_Grado.descripcion%>
+          </div>
+          <div class="col-md-3">
+            <strong>Tipo documento:</strong>
+            <%des_tipo_documento_id=DocumentType.find_by(:id=>@student.tipo_documentacion_id)%>
+            <%=des_tipo_documento_id.descripcion%>
+          </div>
+          <div class="col-md-3">
+            <strong>Identificación:</strong>
+            <%= @student.numero_identificacion %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-3">
+            <strong>Primer nombre:</strong>
+            <%= @student.primer_nombre %>
+          </div>
+          <div class="col-md-3">
+            <strong>Segundo nombre:</strong>
+            <%= @student.segundo_nombre %>
+          </div>
+          <div class="col-md-3">
+            <strong>Primer apellido:</strong>
+            <%= @student.primer_apellido %>
+          </div>
+          <div class="col-md-3">
+            <strong>Segundo Apellido:</strong>
+            <%= @student.segundo_apellido %>
+          </div>
+        </div>
+      </div>  
+
+      <div class="form-group">
+        <div class="form-row">          
+          <div class="col-md-3">
+            <strong>Genero:</strong>
+            <%des_Genero=Gender.find_by(:id=>@student.genero_id)%>
+            <%=des_Genero.descripcion%>
+          </div>
+          <div class="col-md-3">
+            <strong>Fecha nacimiento:</strong>
+            <%= @student.fecha_nacimiento %>
+          </div>
+          <div class="col-md-3">
+            <strong>Jornada:</strong>
+            <%des_Jornada=WorkingDay.find_by(:id=>@student.jornada_id)%>
+            <%=des_Jornada.descripcion%>
+          </div>
+          <div class="col-md-3">
+            <strong>Acudiente:</strong>
+            <%des_Acudiente=Attendant.find_by(:id=>@student.acudiente_id)%>
+            <%=des_Acudiente.cedula%> - <%=des_Acudiente.primer_nombre%> <%=des_Acudiente.primer_apellido%>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-3">
+            <strong>Imagen:</strong>
+            <%= @student.imagen %>
+          </div>
+          <div class="col-md-3">
+            <strong>Dirección:</strong>
+            <%= @student.direccion %>
+          </div>
+          <div class="col-md-3">
+            <strong>Fecha creación:</strong>
+            <%= @student.fecha_creacion %>
+          </div>
+        </div>
+      </div>    
+
+      <div class="form-group">
+        <div class="form-row">
+            <div class="col-md-6">
+                <%= link_to 'Editar', edit_student_path(@student),{ class: "btn btn-info btn-sm" } %> 
+                <%= link_to 'Volver', students_path,{ class: "btn btn-info btn-sm" } %>
+            </div>
+        </div> 
+      </div>
+    </div>
+  </div> 
+</div>
+
+

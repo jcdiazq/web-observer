@@ -1,0 +1,57 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-3">
+
+        <label id="lblId">Id:</label>
+        <input type="number" id="profile_id" name="profile[id]" 
+        class="form-control" placeholder="id Automatico" readonly="readonly"
+        value="<%= @profile != nil ? @profile.id : '' %>">
+        
+      </div>
+      
+      <div class="col-md-3">
+        
+        <label id="lbldescripcion">Descripción:</label>
+        <input type="text" id="profile_descripcion" name="profile[descripcion]" 
+        class="form-control" placeholder="Ingrese descripción" required="required"
+        value="<%= @profile != nil ? @profile.descripcion : '' %>">
+
+      </div>
+
+      <div class="col-md-3">
+        
+        <label id="lblfecha_creacion">Fecha creación:</label>
+        <input type="text" id="profile_fecha_creacion" name="profile[fecha_creacion]" 
+        class="form-control" placeholder="Fecha Automatico" readonly="readonly"
+        value="<%= @profile != nil ? @profile.fecha_creacion : '' %>">
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-12">
+        
+        <input type="submit" id="btnAceptar" value="Aceptar"
+        class="btn btn-primary" name="btnAceptar"/>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>  

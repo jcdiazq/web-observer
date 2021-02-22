@@ -1,24 +1,9 @@
-# README
+# Observado Web
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Features
 
-Things you may want to cover:
+- Desarrollado con el  fin de implementar un sistema que posibilite la documentación de las acciones de acompañamiento del estudiante en un prototipo, ofreciendo la parte de convivencia y responsabilidad civil, que permita la comunicación con padres de familia y/o acudientes.
+- Desarrollado en lenguaje Ruby On Rails
+- Cuenta con diferentes módulos de alta de usuario y autenticación.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### ¡Elaborado por Juan Díaz y compañeros de estudio!.
